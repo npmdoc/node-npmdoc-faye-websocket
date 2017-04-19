@@ -56,6 +56,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.faye-websocket.faye-websocket">
+            function <span class="apidocSignatureSpan"></span>faye-websocket
+            <span class="apidocSignatureSpan">(request, socket, body, protocols, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.faye-websocket.Client">
             function <span class="apidocSignatureSpan">faye-websocket.</span>Client
             <span class="apidocSignatureSpan">(_url, protocols, options)</span>
@@ -333,6 +342,64 @@
 
     </ol></li>
 
+    <li class="apidocModuleLi"><a href="#apidoc.module.faye-websocket.WebSocket">module faye-websocket.WebSocket</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.faye-websocket.WebSocket.WebSocket">
+            function <span class="apidocSignatureSpan">faye-websocket.</span>WebSocket
+            <span class="apidocSignatureSpan">(request, socket, body, protocols, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.faye-websocket.WebSocket.Client">
+            function <span class="apidocSignatureSpan">faye-websocket.WebSocket.</span>Client
+            <span class="apidocSignatureSpan">(_url, protocols, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.faye-websocket.WebSocket.EventSource">
+            function <span class="apidocSignatureSpan">faye-websocket.WebSocket.</span>EventSource
+            <span class="apidocSignatureSpan">(request, response, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.faye-websocket.WebSocket.isWebSocket">
+            function <span class="apidocSignatureSpan">faye-websocket.WebSocket.</span>isWebSocket
+            <span class="apidocSignatureSpan">(request)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.faye-websocket.WebSocket.super_">
+            function <span class="apidocSignatureSpan">faye-websocket.WebSocket.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.faye-websocket.WebSocket.validateOptions">
+            function <span class="apidocSignatureSpan">faye-websocket.WebSocket.</span>validateOptions
+            <span class="apidocSignatureSpan">(options, validKeys)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
     <li class="apidocModuleLi"><a href="#apidoc.module.faye-websocket.super_">module faye-websocket.super_</a><ol>
 
         <li>
@@ -552,6 +619,38 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.faye-websocket" id="apidoc.module.faye-websocket">module faye-websocket</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.faye-websocket.faye-websocket" id="apidoc.element.faye-websocket.faye-websocket">
+        function <span class="apidocSignatureSpan"></span>faye-websocket
+        <span class="apidocSignatureSpan">(request, socket, body, protocols, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">faye-websocket = function (request, socket, body, protocols, options) {
+  options = options || {};
+
+  this._stream = socket;
+  this._driver = driver.http(request, {maxLength: options.maxLength, protocols: protocols});
+
+  var self = this;
+  if (!this._stream || !this._stream.writable) return;
+  if (!this._stream.readable) return this._stream.end();
+
+  var catchup = function() { self._stream.removeListener('data', catchup) };
+  this._stream.on('data', catchup);
+
+  API.call(this, options);
+
+  process.nextTick(function() {
+    self._driver.start();
+    self._driver.io.write(body);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
@@ -1383,6 +1482,275 @@ if (WebSocket.isWebSocket(request)) {
 
 
 
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.faye-websocket.WebSocket" id="apidoc.module.faye-websocket.WebSocket">module faye-websocket.WebSocket</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.faye-websocket.WebSocket.WebSocket" id="apidoc.element.faye-websocket.WebSocket.WebSocket">
+        function <span class="apidocSignatureSpan">faye-websocket.</span>WebSocket
+        <span class="apidocSignatureSpan">(request, socket, body, protocols, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">WebSocket = function (request, socket, body, protocols, options) {
+  options = options || {};
+
+  this._stream = socket;
+  this._driver = driver.http(request, {maxLength: options.maxLength, protocols: protocols});
+
+  var self = this;
+  if (!this._stream || !this._stream.writable) return;
+  if (!this._stream.readable) return this._stream.end();
+
+  var catchup = function() { self._stream.removeListener('data', catchup) };
+  this._stream.on('data', catchup);
+
+  API.call(this, options);
+
+  process.nextTick(function() {
+    self._driver.start();
+    self._driver.io.write(body);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.faye-websocket.WebSocket.Client" id="apidoc.element.faye-websocket.WebSocket.Client">
+        function <span class="apidocSignatureSpan">faye-websocket.WebSocket.</span>Client
+        <span class="apidocSignatureSpan">(_url, protocols, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Client = function (_url, protocols, options) {
+  options = options || {};
+
+  this.url     = _url;
+  this._driver = driver.client(this.url, {maxLength: options.maxLength, protocols: protocols});
+
+  ['open', 'error'].forEach(function(event) {
+    this._driver.on(event, function() {
+      self.headers    = self._driver.headers;
+      self.statusCode = self._driver.statusCode;
+    });
+  }, this);
+
+  var proxy      = options.proxy || {},
+      endpoint   = url.parse(proxy.origin || this.url),
+      port       = endpoint.port || DEFAULT_PORTS[endpoint.protocol],
+      secure     = SECURE_PROTOCOLS.indexOf(endpoint.protocol) &gt;= 0,
+      onConnect  = function() { self._onConnect() },
+      netOptions = options.net || {},
+      originTLS  = options.tls || {},
+      socketTLS  = proxy.origin ? (proxy.tls || {}) : originTLS,
+      self       = this;
+
+  netOptions.host = socketTLS.host = endpoint.hostname;
+  netOptions.port = socketTLS.port = port;
+
+  originTLS.ca = originTLS.ca || options.ca;
+  socketTLS.servername = socketTLS.servername || endpoint.hostname;
+
+  this._stream = secure
+               ? tls.connect(socketTLS, onConnect)
+               : net.connect(netOptions, onConnect);
+
+  if (proxy.origin) this._configureProxy(proxy, originTLS);
+
+  API.call(this, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+The client supports both the plain-text `ws` protocol and the encrypted `wss`
+protocol, and has exactly the same interface as a socket you would use in a web
+browser. On the wire it identifies itself as `hybi-13`.
+
+```js
+var WebSocket = require('faye-websocket'),
+    ws        = new WebSocket.<span class="apidocCodeKeywordSpan">Client</span>('ws://www.example.com/');
+
+ws.on('open', function(event) {
+  console.log('open');
+  ws.send('Hello, world!');
+});
+
+ws.on('message', function(event) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.faye-websocket.WebSocket.EventSource" id="apidoc.element.faye-websocket.WebSocket.EventSource">
+        function <span class="apidocSignatureSpan">faye-websocket.WebSocket.</span>EventSource
+        <span class="apidocSignatureSpan">(request, response, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">EventSource = function (request, response, options) {
+  this.writable = true;
+  options = options || {};
+
+  this._stream = response.socket;
+  this._ping   = options.ping  || this.DEFAULT_PING;
+  this._retry  = options.retry || this.DEFAULT_RETRY;
+
+  var scheme       = driver.isSecureRequest(request) ? 'https:' : 'http:';
+  this.url         = scheme + '//' + request.headers.host + request.url;
+  this.lastEventId = request.headers['last-event-id'] || '';
+  this.readyState  = API.CONNECTING;
+
+  var headers = new Headers(),
+      self    = this;
+
+  if (options.headers) {
+    for (var key in options.headers) headers.set(key, options.headers[key]);
+  }
+
+  if (!this._stream || !this._stream.writable) return;
+  process.nextTick(function() { self._open() });
+
+  this._stream.setTimeout(0);
+  this._stream.setNoDelay(true);
+
+  var handshake = 'HTTP/1.1 200 OK\r\n' +
+                  'Content-Type: text/event-stream\r\n' +
+                  'Cache-Control: no-cache, no-store\r\n' +
+                  'Connection: close\r\n' +
+                  headers.toString() +
+                  '\r\n' +
+                  'retry: ' + Math.floor(this._retry * 1000) + '\r\n\r\n';
+
+  this._write(handshake);
+
+  this._stream.on('drain', function() { self.emit('drain') });
+
+  if (this._ping)
+    this._pingTimer = setInterval(function() { self.ping() }, this._ping * 1000);
+
+  ['error', 'end'].forEach(function(event) {
+    self._stream.on(event, function() { self.close() });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.faye-websocket.WebSocket.isWebSocket" id="apidoc.element.faye-websocket.WebSocket.isWebSocket">
+        function <span class="apidocSignatureSpan">faye-websocket.WebSocket.</span>isWebSocket
+        <span class="apidocSignatureSpan">(request)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isWebSocket = function (request) {
+  return driver.isWebSocket(request);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+var WebSocket = require('faye-websocket'),
+  http      = require('http');
+
+var server = http.createServer();
+
+server.on('upgrade', function(request, socket, body) {
+if (WebSocket.<span class="apidocCodeKeywordSpan">isWebSocket</span>(request)) {
+  var ws = new WebSocket(request, socket, body);
+
+  ws.on('message', function(event) {
+    ws.send(event.data);
+  });
+
+  ws.on('close', function(event) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.faye-websocket.WebSocket.super_" id="apidoc.element.faye-websocket.WebSocket.super_">
+        function <span class="apidocSignatureSpan">faye-websocket.WebSocket.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_ = function (options) {
+  options = options || {};
+  driver.validateOptions(options, ['headers', 'extensions', 'maxLength', 'ping', 'proxy', 'tls', 'ca']);
+
+  this.readable = this.writable = true;
+
+  var headers = options.headers;
+  if (headers) {
+    for (var name in headers) this._driver.setHeader(name, headers[name]);
+  }
+
+  var extensions = options.extensions;
+  if (extensions) {
+    [].concat(extensions).forEach(this._driver.addExtension, this._driver);
+  }
+
+  this._ping          = options.ping;
+  this._pingId        = 0;
+  this.readyState     = API.CONNECTING;
+  this.bufferedAmount = 0;
+  this.protocol       = '';
+  this.url            = this._driver.url;
+  this.version        = this._driver.version;
+
+  var self = this;
+
+  this._driver.on('open',    function(e) { self._open() });
+  this._driver.on('message', function(e) { self._receiveMessage(e.data) });
+  this._driver.on('close',   function(e) { self._beginClose(e.reason, e.code) });
+
+  this._driver.on('error', function(error) {
+    self._emitError(error.message);
+  });
+  this.on('error', function() {});
+
+  this._driver.messages.on('drain', function() {
+    self.emit('drain');
+  });
+
+  if (this._ping)
+    this._pingTimer = setInterval(function() {
+      self._pingId += 1;
+      self.ping(self._pingId.toString());
+    }, this._ping * 1000);
+
+  this._configureStream();
+
+  if (!this._proxy) {
+    this._stream.pipe(this._driver.io);
+    this._driver.io.pipe(this._stream);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.faye-websocket.WebSocket.validateOptions" id="apidoc.element.faye-websocket.WebSocket.validateOptions">
+        function <span class="apidocSignatureSpan">faye-websocket.WebSocket.</span>validateOptions
+        <span class="apidocSignatureSpan">(options, validKeys)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validateOptions = function (options, validKeys) {
+  driver.validateOptions(options, validKeys);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
 
 
 </div>

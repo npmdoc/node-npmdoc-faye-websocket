@@ -1,23 +1,23 @@
 <svg height="318" width="720" xmlns="http://www.w3.org/2000/svg">
 <rect height="318" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
-<tspan x="10" y="26">  0.  2017-04-06 22:22:07 +0000    38934 byte  .</tspan>
-<tspan x="10" y="42">  1.  2017-04-06 22:22:07 +0000     3140 byte  CHANGELOG.md</tspan>
-<tspan x="10" y="58">  2.  2017-04-06 22:22:07 +0000      162 byte  CODE_OF_CONDUCT.md</tspan>
-<tspan x="10" y="74">  3.  2017-04-06 22:22:07 +0000    12576 byte  README.md</tspan>
-<tspan x="10" y="90">  4.  2017-04-06 22:22:07 +0000      934 byte  examples/autobahn_client.js</tspan>
-<tspan x="10" y="106">  5.  2017-04-06 22:22:07 +0000      802 byte  examples/client.js</tspan>
-<tspan x="10" y="122">  6.  2017-04-06 22:22:07 +0000      359 byte  examples/haproxy.conf</tspan>
-<tspan x="10" y="138">  7.  2017-04-06 22:22:07 +0000      201 byte  examples/proxy_server.js</tspan>
-<tspan x="10" y="154">  8.  2017-04-06 22:22:07 +0000     1990 byte  examples/server.js</tspan>
-<tspan x="10" y="170">  9.  2017-04-06 22:22:07 +0000      853 byte  examples/sse.html</tspan>
-<tspan x="10" y="186"> 10.  2017-04-06 22:22:07 +0000     1161 byte  examples/ws.html</tspan>
-<tspan x="10" y="202"> 11.  2017-04-06 22:22:07 +0000     3761 byte  lib/faye/eventsource.js</tspan>
-<tspan x="10" y="218"> 12.  2017-04-06 22:22:07 +0000     1300 byte  lib/faye/websocket.js</tspan>
-<tspan x="10" y="234"> 13.  2017-04-06 22:22:07 +0000     5340 byte  lib/faye/websocket/api.js</tspan>
-<tspan x="10" y="250"> 14.  2017-04-06 22:22:07 +0000      505 byte  lib/faye/websocket/api/event.js</tspan>
-<tspan x="10" y="266"> 15.  2017-04-06 22:22:07 +0000      624 byte  lib/faye/websocket/api/event_target.js</tspan>
-<tspan x="10" y="282"> 16.  2017-04-06 22:22:07 +0000     2716 byte  lib/faye/websocket/client.js</tspan>
-<tspan x="10" y="298"> 17.  2017-04-06 22:22:07 +0000     2510 byte  package.json</tspan>
+<tspan x="10" y="26">  0.  2017-04-19 08:16:26 +0000    38934 bytes  .</tspan>
+<tspan x="10" y="42">  1.  2017-04-19 08:16:26 +0000     3140 bytes  CHANGELOG.md</tspan>
+<tspan x="10" y="58">  2.  2017-04-19 08:16:26 +0000      162 bytes  CODE_OF_CONDUCT.md</tspan>
+<tspan x="10" y="74">  3.  2017-04-19 08:16:26 +0000    12576 bytes  README.md</tspan>
+<tspan x="10" y="90">  4.  2017-04-19 08:16:26 +0000      934 bytes  examples/autobahn_client.js</tspan>
+<tspan x="10" y="106">  5.  2017-04-19 08:16:26 +0000      802 bytes  examples/client.js</tspan>
+<tspan x="10" y="122">  6.  2017-04-19 08:16:26 +0000      359 bytes  examples/haproxy.conf</tspan>
+<tspan x="10" y="138">  7.  2017-04-19 08:16:26 +0000      201 bytes  examples/proxy_server.js</tspan>
+<tspan x="10" y="154">  8.  2017-04-19 08:16:26 +0000     1990 bytes  examples/server.js</tspan>
+<tspan x="10" y="170">  9.  2017-04-19 08:16:26 +0000      853 bytes  examples/sse.html</tspan>
+<tspan x="10" y="186"> 10.  2017-04-19 08:16:26 +0000     1161 bytes  examples/ws.html</tspan>
+<tspan x="10" y="202"> 11.  2017-04-19 08:16:26 +0000     3761 bytes  lib/faye/eventsource.js</tspan>
+<tspan x="10" y="218"> 12.  2017-04-19 08:16:26 +0000     1300 bytes  lib/faye/websocket.js</tspan>
+<tspan x="10" y="234"> 13.  2017-04-19 08:16:26 +0000     5340 bytes  lib/faye/websocket/api.js</tspan>
+<tspan x="10" y="250"> 14.  2017-04-19 08:16:26 +0000      505 bytes  lib/faye/websocket/api/event.js</tspan>
+<tspan x="10" y="266"> 15.  2017-04-19 08:16:26 +0000      624 bytes  lib/faye/websocket/api/event_target.js</tspan>
+<tspan x="10" y="282"> 16.  2017-04-19 08:16:26 +0000     2716 bytes  lib/faye/websocket/client.js</tspan>
+<tspan x="10" y="298"> 17.  2017-04-19 08:16:26 +0000     2510 bytes  package.json</tspan>
 </text>
 </svg>
